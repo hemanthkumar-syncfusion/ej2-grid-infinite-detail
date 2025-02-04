@@ -17,7 +17,40 @@
     <br/>
     <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 25px;"><div id="Grid"></div></div>
 <script >
-datasource();
+var cusData = [];
+
+function dataSource() {
+    var names = ['VINET', 'TOMSP', 'HANAR', 'VICTE', 'SUPRD', 'HANAR', 'CHOPS', 'RICSU', 'WELLI', 'HILAA', 'ERNSH', 'CENTC',
+        'OTTIK', 'QUEDE', 'RATTC', 'ERNSH', 'FOLKO', 'BLONP', 'WARTH', 'FRANK', 'GROSR', 'WHITC', 'WARTH', 'SPLIR', 'RATTC', 'QUICK', 'VINET',
+        'MAGAA', 'TORTU', 'MORGK', 'BERGS', 'LEHMS', 'BERGS', 'ROMEY', 'ROMEY', 'LILAS', 'LEHMS', 'QUICK', 'QUICK', 'RICAR', 'REGGC', 'BSBEV',
+        'COMMI', 'QUEDE', 'TRADH', 'TORTU', 'RATTC', 'VINET', 'LILAS', 'BLONP', 'HUNGO', 'RICAR', 'MAGAA', 'WANDK', 'SUPRD', 'GODOS', 'TORTU',
+        'OLDWO', 'ROMEY', 'LONEP', 'ANATR', 'HUNGO', 'THEBI', 'DUMON', 'WANDK', 'QUICK', 'RATTC', 'ISLAT', 'RATTC', 'LONEP', 'ISLAT', 'TORTU',
+        'WARTH', 'ISLAT', 'PERIC', 'KOENE', 'SAVEA', 'KOENE', 'BOLID', 'FOLKO', 'FURIB', 'SPLIR', 'LILAS', 'BONAP', 'MEREP', 'WARTH', 'VICTE',
+        'HUNGO', 'PRINI', 'FRANK', 'OLDWO', 'MEREP', 'BONAP', 'SIMOB', 'FRANK', 'LEHMS', 'WHITC', 'QUICK', 'RATTC', 'FAMIA'];
+
+    for (var i = 0; i < 500; i++) {
+        cusData.push({
+            OrderID: i + 1,
+            CustomerID: names[Math.floor(i % names.length)],
+            EmployeeID: Math.floor(i % 5) + 1,
+            Freight: Math.floor(i % 50),
+        });
+    }
+}
+
+dataSource();
+
+var dataManger = new ej.data.DataManager({
+    url: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders',
+    adaptor: new ODataV4Adaptor,
+    crossDomain: true
+});
+var dataManger2 = new ej.data.DataManager({
+    url: 'https://services.odata.org/V4/Northwind/Northwind.svc/Customers',
+    adaptor: new ODataV4Adaptor,
+    crossDomain: true
+});
+    
 var grid = new ej.grids.Grid({
   dataSource: virtualData,
   enableColumnVirtualization: true,
