@@ -51,6 +51,9 @@ var grid = new ej.grids.Grid({
     destroyDetailTemplate: (args) => {
         console.log(args.detailTemplates);
     },
+    detailDataBound: (args) => {
+        console.log(args);
+    },
     dataSource: cusData,
     enableInfiniteScrolling: true,
     allowSorting: true,
