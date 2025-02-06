@@ -1,1 +1,85 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>EJ2 Grid</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Typescript Grid Control">
+    <meta name="author" content="Syncfusion">
+    
+    <script src="ej2.min.js"></script>
+    
+    <link href="https://cdn.syncfusion.com/ej2/28.2.3/material.css" rel="stylesheet">
+  
+</head>
+<body>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <button id="getrows">getRows</button>
+    <button id="getrowsobject">getRowsObject</button>
+    <button id="currentviewdata">currentViewData</button>
+    <button id="currentpage">currentPage</button>
+    <div id="Grid"></div>
+<script >
+var cusData = [];
 
+function dataSource() {
+    var names = ['VINET', 'TOMSP', 'HANAR', 'VICTE', 'SUPRD', 'HANAR', 'CHOPS', 'RICSU', 'WELLI', 'HILAA', 'ERNSH', 'CENTC',
+        'OTTIK', 'QUEDE', 'RATTC', 'ERNSH', 'FOLKO', 'BLONP', 'WARTH', 'FRANK', 'GROSR', 'WHITC', 'WARTH', 'SPLIR', 'RATTC', 'QUICK', 'VINET',
+        'MAGAA', 'TORTU', 'MORGK', 'BERGS', 'LEHMS', 'BERGS', 'ROMEY', 'ROMEY', 'LILAS', 'LEHMS', 'QUICK', 'QUICK', 'RICAR', 'REGGC', 'BSBEV',
+        'COMMI', 'QUEDE', 'TRADH', 'TORTU', 'RATTC', 'VINET', 'LILAS', 'BLONP', 'HUNGO', 'RICAR', 'MAGAA', 'WANDK', 'SUPRD', 'GODOS', 'TORTU',
+        'OLDWO', 'ROMEY', 'LONEP', 'ANATR', 'HUNGO', 'THEBI', 'DUMON', 'WANDK', 'QUICK', 'RATTC', 'ISLAT', 'RATTC', 'LONEP', 'ISLAT', 'TORTU',
+        'WARTH', 'ISLAT', 'PERIC', 'KOENE', 'SAVEA', 'KOENE', 'BOLID', 'FOLKO', 'FURIB', 'SPLIR', 'LILAS', 'BONAP', 'MEREP', 'WARTH', 'VICTE',
+        'HUNGO', 'PRINI', 'FRANK', 'OLDWO', 'MEREP', 'BONAP', 'SIMOB', 'FRANK', 'LEHMS', 'WHITC', 'QUICK', 'RATTC', 'FAMIA'];
+
+    for (var i = 0; i < 500; i++) {
+        cusData.push({
+            OrderID: i + 1,
+            CustomerID: names[Math.floor(i % names.length)],
+            EmployeeID: Math.floor(i % 5) + 1,
+            Freight: Math.floor(i % 50),
+        });
+    }
+}
+
+dataSource();
+    
+var grid = new ej.grids.Grid({
+    dataBound: () => {
+        console.log('dataBound');
+    },
+    destroyDetailTemplate: (args) => {
+        console.log(args.detailTemplates);
+    },
+    dataSource: cusData,
+    enableInfiniteScrolling: true,
+    allowSorting: true,
+    allowFiltering: true,
+    allowGrouping: true,
+    toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'],
+    editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+    height: 300,
+        columns: [
+        { field: 'EmployeeID', headerText: 'Employee ID', textAlign: 'Right', width: 125 },
+        { field: 'OrderID', headerText: 'Order ID', width: 120, textAlign: 'Right', isPrimaryKey: true, validationRules: { required: true, number: true } },
+        { field: 'CustomerID', headerText: 'Customer ID', width: 150 },
+        { field: 'Freight', width: 120, format: 'C2', textAlign: 'Right', editType: 'numericedit' },
+    ],
+    detailTemplate: '#detailtemplate',
+});
+grid.appendTo('#Grid');
+
+document.getElementById('getrows').addEventListener('click', () => {
+console.log(grid.getRows());
+});
+document.getElementById('getrowsobject').addEventListener('click', () => {
+console.log(grid.getRowsObject());
+});
+document.getElementById('currentviewdata').addEventListener('click', () => {
+console.log(grid.currentViewData);
+});
+document.getElementById('currentpage').addEventListener('click', () => {
+console.log(grid.pageSettings.currentPage);
+});
+</script>
+</body></html>
