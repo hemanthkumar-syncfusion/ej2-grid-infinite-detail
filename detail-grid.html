@@ -56,6 +56,8 @@ var grid = new ej.grids.Grid({
     },
     detailDataBound: (args) => {
         console.log(args);
+        var button = new ej.buttons.Button();
+        button.appendTo(args.detailElement.querySelector('.btn'));
     },
     dataSource: cusData,
     enableInfiniteScrolling: true,
