@@ -53,6 +53,9 @@ var grid = new ej.grids.Grid({
     },
     destroyDetailTemplate: (args) => {
         console.log(args.detailTemplates);
+        for (let i = 0; i < args.detailTemplates.length; i++) {
+            console.log(args.detailTemplates[i].ej2_instances[0]);
+        }
     },
     detailDataBound: (args) => {
         console.log(args);
