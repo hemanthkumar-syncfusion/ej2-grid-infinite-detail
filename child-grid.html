@@ -15,7 +15,11 @@
     <br/>
     <br/>
     <br/>
-    <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 25px;"><div id="Grid"></div></div>
+    <button id="getrows">getRows</button>
+    <button id="getrowsobject">getRowsObject</button>
+    <button id="currentviewdata">currentViewData</button>
+    <button id="currentpage">currentPage</button>
+    <div id="Grid"></div>
 <script >
 var cusData = [];
 
@@ -97,5 +101,18 @@ var grid = new ej.grids.Grid({
     },
 });
 grid.appendTo('#Grid');
+
+document.getElementById('getrows').addEventListener('click', () => {
+console.log(grid.getRows());
+});
+document.getElementById('getrowsobject').addEventListener('click', () => {
+console.log(grid.getRowsObject());
+});
+document.getElementById('currentviewdata').addEventListener('click', () => {
+console.log(grid.currentViewData);
+});
+document.getElementById('currentpage').addEventListener('click', () => {
+console.log(grid.pageSettings.currentPage);
+});
 </script>
 </body></html>
