@@ -11,9 +11,54 @@
   
 </head>
 <body>
+
     <script id='detailtemplate' type="text/x-template">
-        <button class="btn">Button</button>
-    </script>
+    <table class="detailtable" width="100%" >
+        <colgroup>
+            <col width="35%">
+            <col width="35%">
+            <col width="30%">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td rowspan="4" style="text-align: center;">
+                    <img class='photo' src="${EmployeeID}.png" alt="${EmployeeID}" />
+                </td>
+                <td>
+                    <span style="font-weight: 500;">First Name: </span> ${FirstName}
+                </td>
+                <td>
+                    <span style="font-weight: 500;">Postal Code: </span> ${PostalCode}
+                </td>
+            </tr>
+            <tr>                  
+                <td>
+                    <span style="font-weight: 500;">Last Name: </span> ${LastName}
+                </td>
+                <td>
+                    <span style="font-weight: 500;">City: </span> ${City}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span style="font-weight: 500;">Title: </span> ${Title}
+                </td>
+                <td>
+                    <span style="font-weight: 500;">Phone: </span> ${HomePhone}
+                </td>          
+            </tr>
+            <tr>
+                <td>
+                    <span style="font-weight: 500;">City: </span> ${City}
+                </td>
+                <td>
+                     <span style="font-weight: 500;">Country: </span> ${Country}
+                </td>
+            </tr>  
+        </tbody>
+    </table>
+  </script> 
+    
     <br/>
     <br/>
     <br/>
