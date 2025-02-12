@@ -54,6 +54,14 @@
                     <span style="font-weight: 500;">Freight: </span> $${Freight}
                 </td>
             </tr> 
+            <tr>                  
+                <td>
+                    <span style="font-weight: 500;">Ship City: </span> ${ShipCity}
+                </td>
+                <td>
+                    <span style="font-weight: 500;">Customer Address: </span> $${Customeraddress}
+                </td>
+            </tr> 
         </tbody>
     </table>
   </script> 
@@ -107,6 +115,12 @@ function dataSource() {
     'Marie Bertrand', 'Guillermo Fernández', 'Georg Pipps', 'Isabel de Castro', 'Bernardo Batista', 'Lúcia Carvalho', 'Horst Kloss', 'Sergio Gutiérrez', 'Paula Wilson', 'Maurizio Moroni', 'Janete Limeira', 'Michael Holz',
     'Alejandra Camino', 'Jonas Bergulfsen', 'Jose Pavarotti', 'Hari Kumar', 'Jytte Petersen', 'Dominique Perrier', 'Art Braunschweiger', 'Pascale Cartrain', 'Liz Nixon', 'Liu Wong', 'Karin Josephs', 'Miguel Angel Paolino',
     'Anabela Domingues', 'Helvetius Nagy', 'Palle Ibsen', 'Mary Saveley', 'Paul Henriot', 'Rita Müller', 'Pirkko Koskitalo', 'Paula Parente', 'Karl Jablonski', 'Matti Karttunen', 'Zbyszek Piestrzeniewicz'];
+
+    var ShipCity = ['Reims', 'Münster', 'Rio de Janeiro', 'Lyon', 'Charleroi', 'Bern', 'Genève', 'Resende', 'San Cristóbal', 'Graz', 'México D.F.', 'Köln', 'Albuquerque'];
+
+    var customeraddress = ['507 - 20th Ave. E.\r\nApt. 2A', '908 W. Capital Way', '722 Moss Bay Blvd.', '4110 Old Redmond Rd.', '14 Garrett Hill', 'Coventry House\r\nMiner Rd.', 'Edgeham Hollow\r\nWinchester Way',
+    '4726 - 11th Ave. N.E.', '7 Houndstooth Rd.', '59 rue de l\'Abbaye', 'Luisenstr. 48', '908 W. Capital Way', '722 Moss Bay Blvd.', '4110 Old Redmond Rd.', '14 Garrett Hill', 'Coventry House\r\nMiner Rd.', 'Edgeham Hollow\r\nWinchester Way',
+    '7 Houndstooth Rd.', '2817 Milton Dr.', 'Kirchgasse 6', 'Sierras de Granada 9993', 'Mehrheimerstr. 369', 'Rua da Panificadora, 12', '2817 Milton Dr.', 'Mehrheimerstr. 369'];
     
     for (var i = 0; i < 500; i++) {
         cusData.push({
@@ -118,6 +132,8 @@ function dataSource() {
             Country: country[Math.floor(i % country.length)],
             Product: product[Math.floor(i % product.length)],
             Customername: customername[Math.floor(i % customername.length)],
+            ShipCity: ShipCity[Math.floor(i % ShipCity.length)],
+            Customeraddress: customeraddress[Math.floor(i % customeraddress.length)],
         });
     }
 }
