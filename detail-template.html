@@ -57,8 +57,8 @@ var grid = new ej.grids.Grid({
         var button = new ej.buttons.Button();
         button.appendTo(args.detailElement.querySelector('.btn'));
     },
-        destroyDetailTemplate: (args) => {
-            console.log('destroyDetailTemplate');
+        beforeDetailTemplateDetach: (args) => {
+            console.log('beforeDetailTemplateDetach');
         console.log(args.detailTemplates);
         for (let i = 0; i < args.detailTemplates.length; i++) {
             console.log(args.detailTemplates[i].querySelector('.btn').ej2_instances[0]);
