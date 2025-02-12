@@ -9,12 +9,12 @@
     
     <link href="https://cdn.syncfusion.com/ej2/28.2.4/material.css" rel="stylesheet">
     <style>
-    img {
-        height: 105px;
-        width: 105px;
-        border-radius: 50px;
-        box-shadow: inset 0 0 1px #e0e0e0, inset 0 0 14px rgba(0, 0, 0, 0.2);
-    }
+        img {
+            height: 105px;
+            width: 105px;
+            border-radius: 50px;
+            box-shadow: inset 0 0 1px #e0e0e0, inset 0 0 14px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -71,7 +71,7 @@ function dataSource() {
         'WARTH', 'ISLAT', 'PERIC', 'KOENE', 'SAVEA', 'KOENE', 'BOLID', 'FOLKO', 'FURIB', 'SPLIR', 'LILAS', 'BONAP', 'MEREP', 'WARTH', 'VICTE',
         'HUNGO', 'PRINI', 'FRANK', 'OLDWO', 'MEREP', 'BONAP', 'SIMOB', 'FRANK', 'LEHMS', 'WHITC', 'QUICK', 'RATTC', 'FAMIA'];
 
-        var sport = ['Cricket', 'Football', 'Tennis', 'Golf', 'Chess', 'Dodgeball', 'Racket', 'Archery', 'Climbing', 'Hunting', 'Carrom', 'Tag', 'Novuss',
+    var sport = ['Cricket', 'Football', 'Tennis', 'Golf', 'Chess', 'Dodgeball', 'Racket', 'Archery', 'Climbing', 'Hunting', 'Carrom', 'Tag', 'Novuss',
         'Subbuteo', 'Baseball', 'Madden NFL', 'Shuffleboard', 'Badminton', 'Hockey', 'Volleyball', 'Table Tennis', 'Golf', 'Cycling', 'Running', 'Walking', 'Wireball',
         'Town ball', 'Tee ball', 'Stool ball', 'Stick ball'];
 
@@ -104,13 +104,9 @@ var grid = new ej.grids.Grid({
         var button = new ej.buttons.Button();
         button.appendTo(args.detailElement.querySelector('.btn'));
     },
-        beforeDetailTemplateDetach: (args) => {
-            console.log('beforeDetailTemplateDetach');
+    beforeDetailTemplateDetach: (args) => {
+        console.log('beforeDetailTemplateDetach');
         console.log(args.detailTemplates);
-        for (let i = 0; i < args.detailTemplates.length; i++) {
-            console.log(args.detailTemplates[i].querySelector('.btn').ej2_instances[0]);
-            args.detailTemplates[i].querySelector('.btn').ej2_instances[0].destroy();
-        }
     },
     dataSource: cusData,
     enableInfiniteScrolling: true,
