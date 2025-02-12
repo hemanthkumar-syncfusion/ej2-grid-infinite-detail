@@ -25,35 +25,23 @@
                     <img class='photo' src="${EmployeeID}.png" alt="${EmployeeID}" />
                 </td>
                 <td>
-                    <span style="font-weight: 500;">First Name: </span> ${FirstName}
+                    <span style="font-weight: 500;">Customer ID: </span> ${CustomerID}
                 </td>
                 <td>
-                    <span style="font-weight: 500;">Postal Code: </span> ${PostalCode}
+                    <span style="font-weight: 500;">Freight: </span> ${Freight}
                 </td>
             </tr>
             <tr>                  
                 <td>
-                    <span style="font-weight: 500;">Last Name: </span> ${LastName}
+                    <span style="font-weight: 500;">Sport: </span> ${Sport}
                 </td>
                 <td>
-                    <span style="font-weight: 500;">City: </span> ${City}
+                    <span style="font-weight: 500;">Country: </span> ${Country}
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span style="font-weight: 500;">Title: </span> ${Title}
-                </td>
-                <td>
-                    <span style="font-weight: 500;">Phone: </span> ${HomePhone}
-                </td>          
-            </tr>
-            <tr>
-                <td>
-                    <span style="font-weight: 500;">City: </span> ${City}
-                </td>
-                <td>
-                     <span style="font-weight: 500;">Country: </span> ${Country}
-        <button class="btn">Button</button>
+                    <button class="btn">Button</button>
                 </td>
             </tr>  
         </tbody>
@@ -81,12 +69,23 @@ function dataSource() {
         'WARTH', 'ISLAT', 'PERIC', 'KOENE', 'SAVEA', 'KOENE', 'BOLID', 'FOLKO', 'FURIB', 'SPLIR', 'LILAS', 'BONAP', 'MEREP', 'WARTH', 'VICTE',
         'HUNGO', 'PRINI', 'FRANK', 'OLDWO', 'MEREP', 'BONAP', 'SIMOB', 'FRANK', 'LEHMS', 'WHITC', 'QUICK', 'RATTC', 'FAMIA'];
 
+        var sport = ['Cricket', 'Football', 'Tennis', 'Golf', 'Chess', 'Dodgeball', 'Racket', 'Archery', 'Climbing', 'Hunting', 'Carrom', 'Tag', 'Novuss',
+        'Subbuteo', 'Baseball', 'Madden NFL', 'Shuffleboard', 'Badminton', 'Hockey', 'Volleyball', 'Table Tennis', 'Golf', 'Cycling', 'Running', 'Walking', 'Wireball',
+        'Town ball', 'Tee ball', 'Stool ball', 'Stick ball'];
+
+    var country = ['India', 'Australia', 'Ballesteros', 'Belgium', 'Brazil', 'England', 'Ethiopia', 'Finland', 'France', 'Germany', 'Britain',
+        'Argentina', 'Jamaica', 'Kenya', 'Morocco', 'Ireland', 'Norway', 'Philippines', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Scottish', 'Serbia', 'Spain',
+        'Sweden', 'Switzerland', 'Netherlands', 'UK', 'Ukraine', 'US', 'Wales', 'West Indies', 'China', 'Hong Kong', 'Italy', 'Philippines', 'Turkey', 'Botswana',
+        'Sri Lanka', 'Algeria', 'Bangladesh', 'Egypt', 'Malaysia'];
+    
     for (var i = 0; i < 500; i++) {
         cusData.push({
             OrderID: i + 1,
             CustomerID: names[Math.floor(i % names.length)],
             EmployeeID: Math.floor(i % 5) + 1,
             Freight: Math.floor(i % 50),
+            Sport: sport[Math.floor(i % sport.length)],
+            Country: country[Math.floor(i % country.length)],
         });
     }
 }
